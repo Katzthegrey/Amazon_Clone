@@ -7,7 +7,6 @@ const ProductDetailPage = ({ products, onAddToCart, isInCart, onProductClick }) 
   const navigate = useNavigate();
   const [product, setProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
-  const [activeTab, setActiveTab] = useState('description');
   const [relatedProducts, setRelatedProducts] = useState([]);
 
   useEffect(() => {

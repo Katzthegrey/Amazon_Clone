@@ -15,8 +15,6 @@ import ProductCard from "./Components/ProductCard/ProductCard";
 import {
   initializeStorage,
   getProducts,
-  getProductById,
-  getProductsByCategory,
   getCategories,
   searchProducts,
 } from "./data/storage";
@@ -30,7 +28,6 @@ const AppContent = () => {
   
   // State
   const [products, setProducts] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
   const [categories, setCategories] = useState(["All"]);
   const [loading, setLoading] = useState(true);
 
@@ -40,16 +37,16 @@ const AppContent = () => {
   const [theme, setTheme] = useLocalStorage("amazon_clone_theme", "light");
   const { authState, login, signup, logout, openModal, closeModal } = useAuth();
 
-  // Load data on mount
+  // Load data on mount (omit persistedCart from deps: we only hydrate cart once at startup)
   useEffect(() => {
     initializeStorage();
     loadAllProducts();
     loadCategories();
 
-    // Load cart from localStorage
     if (persistedCart.items && persistedCart.items.length > 0) {
       cartDispatch({ type: "LOAD_CART", payload: persistedCart });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- intentional one-time init
   }, []);
 
   // Sync cart to localStorage
@@ -73,7 +70,6 @@ const AppContent = () => {
   const loadAllProducts = () => {
     const allProducts = getProducts();
     setProducts(allProducts);
-    setFilteredProducts(allProducts);
     setLoading(false);
   };
 
@@ -85,7 +81,6 @@ const AppContent = () => {
   // Handle search from Navbar
   const handleSearch = (query) => {
     if (query.trim()) {
-      const results = searchProducts(query);
       navigate(`/search?q=${encodeURIComponent(query)}`);
     } else {
       navigate("/");
