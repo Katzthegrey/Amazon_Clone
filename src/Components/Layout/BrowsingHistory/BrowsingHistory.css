@@ -1,0 +1,77 @@
+.browsing-history {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  margin: 30px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.history-icon {
+  font-size: 1.5rem;
+}
+
+.history-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #131921;
+  margin: 0;
+}
+
+.history-count {
+  background: #f0f0f0;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: #565959;
+}
+
+.header-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.clear-history-btn,
+.close-history-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.clear-history-btn {
+  color: #cc0c39;
+}
+
+.clear-history-btn:hover {
+  background-color: #f7c0c0;
+}

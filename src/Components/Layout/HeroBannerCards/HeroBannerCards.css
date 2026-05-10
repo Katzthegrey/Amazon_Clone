@@ -1,0 +1,155 @@
+.hero-banner-cards {
+  position: relative;
+  margin: 20px 0 30px;
+  padding: 0 20px;
+}
+
+.banner-cards-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  padding: 10px 0;
+}
+
+.banner-cards-container::-webkit-scrollbar {
+  display: none;
+}
+
+.promo-card {
+  flex: 0 0 auto;
+  width: 380px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.promo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.promo-card-content {
+  flex: 1;
+  padding-right: 15px;
+}
+
+.promo-badge {
+  display: inline-block;
+  background-color: rgba(255,255,255,0.2);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: white;
+}
+
+.promo-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: white;
+  line-height: 1.3;
+}
+
+.promo-description {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+.promo-button {
+  background-color: white;
+  color: #131921;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.promo-button:hover {
+  transform: translateX(5px);
+  background-color: #ff9900;
+  color: white;
+}
+
+.promo-card-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.promo-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.scroll-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: white;
+  border: 1px solid #ddd;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.scroll-arrow:hover {
+  background-color: #ff9900;
+  color: white;
+  border-color: #ff9900;
+}
+
+.scroll-arrow.left {
+  left: 0;
+}
+
+.scroll-arrow.right {
+  right: 0;
+}
+
+@media (max-width: 768px) {
+  .promo-card {
+    width: 300px;
+    padding: 15px;
+  }
+  
+  .promo-title {
+    font-size: 1rem;
+  }
+  
+  .promo-card-image {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .scroll-arrow {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+}

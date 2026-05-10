@@ -1,0 +1,260 @@
+/* Footer Base Styles */
+.footer {
+  background-color: #232f3e;
+  color: #ffffff;
+  margin-top: 40px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Back to Top Button */
+.footer-back-to-top {
+  background-color: #37475a;
+  text-align: center;
+  padding: 15px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.footer-back-to-top:hover {
+  background-color: #485769;
+}
+
+/* Main Footer Section */
+.footer-main {
+  padding: 40px 0 20px;
+  border-bottom: 1px solid #3a4553;
+}
+
+.footer-container {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.footer-column {
+  margin-bottom: 20px;
+}
+
+.footer-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: #ffffff;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #dddddd;
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.2s ease;
+  line-height: 1.4;
+}
+
+.footer-links a:hover {
+  color: #ff9900;
+  text-decoration: underline;
+}
+
+/* Footer Bottom Bar */
+.footer-bottom {
+  padding: 30px 0;
+  border-bottom: 1px solid #3a4553;
+}
+
+.footer-bottom-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+}
+
+.footer-logo-text:hover {
+  color: #ff9900;
+}
+
+.country-select {
+  background-color: #232f3e;
+  color: #ffffff;
+  border: 1px solid #848688;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.country-select:hover {
+  border-color: #ff9900;
+}
+
+.country-select:focus {
+  outline: none;
+  border-color: #ff9900;
+}
+
+.footer-payment-methods {
+  display: flex;
+  gap: 15px;
+  font-size: 1.5rem;
+}
+
+.payment-icon {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  filter: grayscale(100%);
+}
+
+.payment-icon:hover {
+  transform: scale(1.1);
+  filter: grayscale(0%);
+}
+
+/* Copyright Section */
+.footer-copyright {
+  padding: 25px 0;
+  background-color: #131921;
+}
+
+.copyright-content {
+  text-align: center;
+}
+
+.copyright-content p {
+  color: #dddddd;
+  font-size: 0.8rem;
+  margin-bottom: 12px;
+}
+
+.copyright-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.copyright-links a {
+  color: #dddddd;
+  text-decoration: none;
+  font-size: 0.75rem;
+  transition: color 0.2s ease;
+}
+
+.copyright-links a:hover {
+  color: #ff9900;
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-links-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    text-align: center;
+  }
+  
+  .footer-bottom-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer-payment-methods {
+    justify-content: center;
+  }
+  
+  .footer-main {
+    padding: 30px 0 15px;
+  }
+  
+  .footer-title {
+    font-size: 0.95rem;
+  }
+  
+  .footer-links a {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-links-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  
+  .footer-bottom-content {
+    gap: 15px;
+  }
+  
+  .copyright-links {
+    gap: 15px;
+  }
+  
+  .copyright-links a {
+    font-size: 0.7rem;
+  }
+  
+  .copyright-content p {
+    font-size: 0.7rem;
+  }
+}
+
+/* Animation for back to top */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.footer-back-to-top {
+  animation: fadeIn 0.3s ease;
+}
+
+/* Print styles */
+@media print {
+  .footer {
+    display: none;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .footer-links a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer-back-to-top:hover {
+    outline: 2px solid #ffffff;
+  }
+}

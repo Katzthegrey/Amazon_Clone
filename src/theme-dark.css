@@ -1,0 +1,406 @@
+/* Cursor code: dark UI driven by html[data-theme="dark"] (toggle in Navbar). */
+
+[data-theme="dark"] body {
+  background-color: #0d1117;
+  color: #e6edf3;
+}
+
+[data-theme="dark"] .main-content {
+  background-color: #0d1117;
+  min-height: 40vh;
+}
+
+[data-theme="dark"] .welcome-banner {
+  background: linear-gradient(135deg, #1c2128 0%, #161b22 100%);
+  color: #e6edf3;
+}
+
+[data-theme="dark"] .product-card {
+  background: #161b22;
+  border: 1px solid #30363d;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .product-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .product-image-wrapper {
+  background-color: #0d1117;
+}
+
+[data-theme="dark"] .product-title,
+[data-theme="dark"] .product-info .product-title {
+  color: #e6edf3;
+}
+
+[data-theme="dark"] .review-count {
+  color: #8b949e;
+}
+
+[data-theme="dark"] .current-price {
+  color: #f0f6fc;
+}
+
+[data-theme="dark"] .original-price {
+  color: #8b949e;
+}
+
+[data-theme="dark"] .search-results-page {
+  background: #0d1117;
+  color: #e6edf3;
+  min-height: 60vh;
+  padding: 20px;
+}
+
+[data-theme="dark"] .search-header h2,
+[data-theme="dark"] .search-header .back-home-btn {
+  color: #e6edf3;
+}
+
+[data-theme="dark"] .back-home-btn {
+  background: #21262d;
+  border-color: #30363d;
+  color: #e6edf3;
+}
+
+[data-theme="dark"] .loading-spinner p {
+  color: #e6edf3;
+}
+
+[data-theme="dark"] .category-page .breadcrumb,
+[data-theme="dark"] .filters-sidebar,
+[data-theme="dark"] .category-products .results-header {
+  background: #161b22;
+  border: 1px solid #30363d;
+  color: #e6edf3;
+  box-shadow: none;
+}
+
+[data-theme="dark"] .breadcrumb-current {
+  color: #e6edf3;
+}
+
+[data-theme="dark"] .breadcrumb-separator,
+[data-theme="dark"] .product-count {
+  color: #8b949e;
+}
+
+[data-theme="dark"] .filters-sidebar h3,
+[data-theme="dark"] .filter-section h4 {
+  color: #e6edf3;
+  border-color: #30363d;
+}
+
+[data-theme="dark"] .filters-sidebar {
+  border: 1px solid #30363d;
+}
+
+[data-theme="dark"] .filter-section select {
+  background: #0d1117;
+  border-color: #30363d;
+  color: #e6edf3;
+}
+
+[data-theme="dark"] .filters-sidebar select option {
+  background: #161b22;
+  color: #e6edf3;
+}
+
+[data-theme="dark"] .products-grid-category {
+  gap: 16px;
+}
+
+[data-theme="dark"] .no-results-category {
+  background: #161b22;
+  border: 1px solid #30363d;
+  color: #e6edf3;
+}
+
+[data-theme="dark"] .no-results-category h3,
+[data-theme="dark"] .no-results-category p {
+  color: #e6edf3;
+}
+
+[data-theme="dark"] .product-detail-page {
+  color: #e6edf3;
+}
+
+[data-theme="dark"] .breadcrumb-detail {
+  background: #161b22;
+  border: 1px solid #30363d;
+}
+
+[data-theme="dark"] .product-detail-layout > div {
+  border-color: #30363d;
+}
+
+[data-theme="dark"] .product-gallery,
+[data-theme="dark"] .product-info-detail,
+[data-theme="dark"] .main-image {
+  background: #161b22;
+}
+
+[data-theme="dark"] .product-title-detail {
+  color: #e6edf3;
+}
+
+[data-theme="dark"] .quantity-controls button,
+[data-theme="dark"] .quantity-controls span {
+  background: #21262d;
+  border-color: #30363d;
+  color: #e6edf3;
+}
+
+[data-theme="dark"] .related-products {
+  border-color: #30363d;
+}
+
+[data-theme="dark"] .related-product-card {
+  background: #161b22;
+  border: 1px solid #30363d;
+}
+
+[data-theme="dark"] .related-product-card h4,
+[data-theme="dark"] .related-product-card p {
+  color: #e6edf3;
+}
+
+[data-theme="dark"] .product-not-found {
+  background: #161b22;
+  border: 1px solid #30363d;
+  color: #e6edf3;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+[data-theme="dark"] .cart-page {
+  background-color: #0d1117;
+  color: #e6edf3;
+}
+
+[data-theme="dark"] .cart-empty-container,
+[data-theme="dark"] .cart-container,
+[data-theme="dark"] .order-summary-card {
+  background: #161b22;
+  border: 1px solid #30363d;
+}
+
+[data-theme="dark"] .cart-empty-left {
+  border-color: #30363d;
+}
+
+[data-theme="dark"] .cart-empty-box h1,
+[data-theme="dark"] .items-header-title,
+[data-theme="dark"] .cart-item-title {
+  color: #e6edf3;
+}
+
+[data-theme="dark"] .cart-item-row {
+  border-color: #30363d;
+}
+
+[data-theme="dark"] .category-multi-card {
+  background: #161b22;
+  border: 1px solid #30363d;
+}
+
+[data-theme="dark"] .category-card-header {
+  border-color: #30363d;
+}
+
+[data-theme="dark"] .category-card-title,
+[data-theme="dark"] .category-item-name {
+  color: #e6edf3;
+}
+
+[data-theme="dark"] .browsing-history {
+  background: #161b22;
+  border: 1px solid #30363d;
+}
+
+[data-theme="dark"] .history-title {
+  color: #e6edf3;
+}
+
+[data-theme="dark"] .history-count {
+  background: #21262d;
+  color: #8b949e;
+}
+
+[data-theme="dark"] .promo-card {
+  border: 1px solid #30363d;
+}
+
+[data-theme="dark"] .promo-card-content {
+  background: #161b22;
+  color: #e6edf3;
+}
+
+[data-theme="dark"] .promo-title,
+[data-theme="dark"] .promo-description {
+  color: #e6edf3;
+}
+
+[data-theme="dark"] .modal-overlay {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+[data-theme="dark"] .modal-container {
+  background: #161b22;
+  border: 1px solid #30363d;
+  color: #e6edf3;
+}
+
+[data-theme="dark"] .modal-header h2 {
+  color: #e6edf3;
+}
+
+[data-theme="dark"] .modal-close {
+  color: #e6edf3;
+}
+
+[data-theme="dark"] .auth-modal {
+  color: #e6edf3;
+}
+
+[data-theme="dark"] .auth-modal input {
+  background: #0d1117;
+  border-color: #30363d;
+  color: #e6edf3;
+}
+
+[data-theme="dark"] .auth-submit {
+  background: #f0883e;
+  color: #0d1117;
+}
+
+[data-theme="dark"] .navbar .search-category {
+  background-color: #3d444f;
+  color: #e6edf3;
+  border-right-color: #30363d;
+}
+
+[data-theme="dark"] .navbar .search-input {
+  background-color: #0d1117;
+  color: #e6edf3;
+}
+
+[data-theme="dark"] .navbar .search-input::placeholder {
+  color: #8b949e;
+}
+
+[data-theme="dark"] .hero-banner-cards {
+  background: transparent;
+}
+
+[data-theme="dark"] html {
+  background-color: #0d1117;
+}
+
+[data-theme="dark"] .footer {
+  background-color: #0d1117;
+  border-top: 1px solid #30363d;
+}
+
+[data-theme="dark"] .footer-main,
+[data-theme="dark"] .footer-links a,
+[data-theme="dark"] .footer-title {
+  color: #e6edf3;
+}
+
+[data-theme="dark"] .footer-back-to-top {
+  background-color: #21262d;
+}
+
+[data-theme="dark"] .footer-back-to-top:hover {
+  background-color: #30363d;
+}
+
+[data-theme="dark"] .cart-empty-message,
+[data-theme="dark"] .items-header-price,
+[data-theme="dark"] .items-header-quantity,
+[data-theme="dark"] .items-header-total,
+[data-theme="dark"] .summary-row,
+[data-theme="dark"] .cart-item-price-col,
+[data-theme="dark"] .cart-item-total-col {
+  color: #e6edf3;
+}
+
+[data-theme="dark"] .recommended-section,
+[data-theme="dark"] .recently-viewed {
+  color: #e6edf3;
+}
+
+[data-theme="dark"] .recommended-placeholder,
+[data-theme="dark"] .gift-card-section {
+  background: #161b22;
+  border-color: #30363d;
+}
+
+[data-theme="dark"] .breadcrumb-link,
+[data-theme="dark"] .auth-switch {
+  color: #58a6ff;
+}
+
+[data-theme="dark"] .breadcrumb-link:hover,
+[data-theme="dark"] .auth-switch:hover {
+  color: #ffa657;
+}
+
+[data-theme="dark"] .category-bar {
+  background-color: #161b22;
+  border-color: #30363d;
+}
+
+[data-theme="dark"] .category-dropdown-btn,
+[data-theme="dark"] .category-dropdown-menu {
+  background-color: #161b22;
+  border-color: #30363d;
+}
+
+[data-theme="dark"] .promo-card-image {
+  filter: brightness(0.92);
+}
+
+[data-theme="dark"] .scroll-arrow {
+  background-color: #21262d;
+  color: #e6edf3;
+  border: 1px solid #30363d;
+}
+
+[data-theme="dark"] .support-chat-panel {
+  background: #161b22;
+  color: #e6edf3;
+  border-color: #30363d;
+}
+
+[data-theme="dark"] .support-chat-messages {
+  background: #0d1117;
+}
+
+[data-theme="dark"] .support-chat-msg--agent {
+  background: #161b22;
+  border-color: #30363d;
+}
+
+[data-theme="dark"] .support-chat-msg--user {
+  background: #21262d;
+  border-color: #914d1e;
+}
+
+[data-theme="dark"] .support-chat-msg-role {
+  color: #8b949e;
+}
+
+[data-theme="dark"] .support-chat-form {
+  background: #161b22;
+  border-color: #30363d;
+}
+
+[data-theme="dark"] .support-chat-form input {
+  background: #0d1117;
+  border-color: #30363d;
+  color: #e6edf3;
+}

@@ -1,0 +1,732 @@
+/* ==========================================
+   NAVBAR BASE STYLES
+   ========================================== */
+
+.navbar {
+  background-color: #131921;
+  color: white;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  width: 100%;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 12px;
+  max-width: 1600px;
+  margin: 0 auto;
+  min-height: 60px;
+}
+
+/* ==========================================
+   LOGO SECTION
+   ========================================== */
+
+.navbar-logo {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo .logo-link {
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+  text-decoration: none;
+  color: white;
+  transition: opacity 0.2s ease;
+  padding: 4px 6px;
+  border-radius: 4px;
+}
+
+.navbar-logo .logo-link:hover {
+  opacity: 0.9;
+  border: 1px solid white;
+  padding: 3px 5px;
+}
+
+.logo-image {
+  height: auto;
+  max-height: 32px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.logo-domain {
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: #ffffff;
+  margin-left: -2px;
+  padding-bottom: 2px;
+  white-space: nowrap;
+}
+
+/* ==========================================
+   DELIVERY LOCATION
+   ========================================== */
+
+.navbar-location {
+  display: none;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.navbar-location:hover {
+  border: 1px solid white;
+  padding: 3px 5px;
+}
+
+.delivery-label {
+  font-size: 0.7rem;
+  color: #cccccc;
+  display: block;
+  line-height: 1.2;
+}
+
+.delivery-label i {
+  margin-right: 3px;
+  font-size: 0.65rem;
+}
+
+.delivery-location {
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: block;
+  line-height: 1.3;
+}
+
+/* ==========================================
+   SEARCH BAR
+   ========================================== */
+
+.navbar-search {
+  flex: 1;
+  display: flex;
+  max-width: 500px;
+  min-width: 150px;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  height: 36px;
+}
+
+.navbar-search:focus-within {
+  box-shadow: 0 0 0 2px rgba(255, 153, 0, 0.3);
+  border-radius: 6px;
+}
+
+.search-category {
+  background-color: #f3f3f3;
+  border: none;
+  padding: 0 8px;
+  font-size: 0.75rem;
+  color: #555;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-right: 1px solid #ccc;
+  height: 36px;
+}
+
+.search-category:hover {
+  background-color: #e7e7e7;
+}
+
+.search-input {
+  flex: 1;
+  padding: 0 12px;
+  border: none;
+  font-size: 0.85rem;
+  outline: none;
+  min-width: 100px;
+  height: 36px;
+}
+
+.search-input::placeholder {
+  color: #999;
+  font-size: 0.75rem;
+}
+
+.search-button {
+  background-color: #febd69;
+  border: none;
+  padding: 0 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+}
+
+.search-button i {
+  font-size: 0.9rem;
+  color: #131921;
+}
+
+.search-button:hover {
+  background-color: #f3a847;
+}
+
+.search-button:active {
+  transform: scale(0.98);
+}
+
+/* ==========================================
+   NAVBAR LINKS (Right Side)
+   ========================================== */
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.nav-link {
+  display: none;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+  border: 1px solid white;
+  padding: 3px 5px;
+}
+
+.nav-line1 {
+  font-size: 0.7rem;
+  color: #cccccc;
+  display: block;
+  line-height: 1.2;
+}
+
+.nav-line2 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: block;
+  line-height: 1.3;
+}
+
+.nav-line2 i {
+  margin-left: 4px;
+  font-size: 0.65rem;
+}
+
+/* ==========================================
+   CART ICON
+   ========================================== */
+
+.nav-cart {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.nav-cart:hover {
+  border: 1px solid white;
+  padding: 3px 5px;
+}
+
+.cart-icon i {
+  font-size: 1.4rem;
+}
+
+.cart-count {
+  position: absolute;
+  top: -4px;
+  left: 14px;
+  background-color: #ff9900;
+  color: #131921;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 0px 4px;
+  font-size: 0.7rem;
+  min-width: 18px;
+  text-align: center;
+}
+
+.cart-text {
+  display: none;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* ==========================================
+   THEME TOGGLE BUTTON
+   ========================================== */
+
+.theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid #3a4553;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.theme-toggle-btn:hover {
+  border-color: #ff9900;
+  color: #ff9900;
+  background-color: rgba(255, 153, 0, 0.08);
+}
+
+/* ==========================================
+   MOBILE MENU BUTTON (HAMBURGER)
+   ========================================== */
+
+.mobile-menu-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 1px solid #3a4553;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  width: 40px;
+  height: 36px;
+}
+
+.mobile-menu-btn:hover {
+  background-color: #3a4553;
+  border-color: #ff9900;
+}
+
+.mobile-menu-btn:active {
+  transform: scale(0.95);
+}
+
+/* ==========================================
+   MOBILE DROPDOWN MENU (FULL SCREEN ON MOBILE)
+   ========================================== */
+
+.mobile-menu {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #131921;
+  display: flex;
+  flex-direction: column;
+  z-index: 1001;
+  animation: slideInRight 0.3s ease;
+  overflow-y: auto;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.mobile-menu-header {
+  padding: 20px;
+  border-bottom: 1px solid #3a4553;
+  background-color: #1a2a3a;
+}
+
+.mobile-menu-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+}
+
+.mobile-menu-user i {
+  font-size: 2rem;
+  color: #ff9900;
+}
+
+.mobile-menu-items {
+  flex: 1;
+  padding: 12px 0;
+}
+
+.mobile-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid #2a3a4a;
+  color: white;
+}
+
+.mobile-menu-item:hover {
+  background-color: #1a2a3a;
+}
+
+.mobile-menu-item i:first-child {
+  width: 24px;
+  font-size: 1.1rem;
+  color: #ff9900;
+}
+
+.mobile-menu-item span {
+  flex: 1;
+  font-size: 0.95rem;
+}
+
+.mobile-menu-item i:last-child {
+  color: #666;
+  font-size: 0.8rem;
+}
+
+.mobile-cart-count {
+  color: #ff9900 !important;
+  font-weight: 600;
+  text-align: right;
+}
+
+.mobile-menu-footer {
+  padding: 20px;
+  border-top: 1px solid #3a4553;
+  margin-top: auto;
+}
+
+.mobile-logout {
+  width: 100%;
+  background: none;
+  border: 1px solid #ff9900;
+  color: #ff9900;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.mobile-logout:hover {
+  background-color: #ff9900;
+  color: #131921;
+}
+
+/* ==========================================
+   RESPONSIVE BREAKPOINTS
+   ========================================== */
+
+/* Mobile Small (320px - 480px) */
+@media (max-width: 480px) {
+  .navbar-container {
+    gap: 6px;
+    padding: 6px 10px;
+    min-height: 54px;
+  }
+  
+  .logo-image {
+    max-height: 28px;
+  }
+  
+  .logo-domain {
+    font-size: 0.65rem;
+  }
+  
+  .navbar-search {
+    max-width: none;
+    height: 32px;
+  }
+  
+  .search-category {
+    display: none; /* Hide category dropdown on very small screens */
+  }
+  
+  .search-input {
+    padding: 0 10px;
+    font-size: 0.8rem;
+  }
+  
+  .search-button {
+    padding: 0 10px;
+  }
+  
+  .search-button i {
+    font-size: 0.8rem;
+  }
+  
+  .cart-icon i {
+    font-size: 1.2rem;
+  }
+  
+  .cart-count {
+    top: -6px;
+    left: 10px;
+    font-size: 0.65rem;
+    min-width: 16px;
+  }
+  
+  .theme-toggle-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+  }
+  
+  .mobile-menu-btn {
+    width: 36px;
+    height: 32px;
+    padding: 4px 8px;
+  }
+}
+
+/* Mobile Medium (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .navbar-container {
+    gap: 10px;
+    padding: 8px 16px;
+  }
+  
+  .logo-image {
+    max-height: 30px;
+  }
+  
+  .navbar-search {
+    max-width: 300px;
+  }
+  
+  .search-category {
+    display: inline-block;
+  }
+}
+
+/* Tablet (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .navbar-container {
+    gap: 16px;
+    padding: 8px 20px;
+  }
+  
+  .logo-image {
+    max-height: 34px;
+  }
+  
+  .navbar-search {
+    max-width: 400px;
+  }
+  
+  .navbar-location {
+    display: block;
+  }
+  
+  .nav-link {
+    display: block;
+  }
+  
+  .cart-text {
+    display: inline;
+  }
+  
+  .mobile-menu-btn {
+    display: none;
+  }
+}
+
+/* Desktop (1025px and up) */
+@media (min-width: 1025px) {
+  .navbar-container {
+    gap: 20px;
+    padding: 8px 30px;
+  }
+  
+  .logo-image {
+    max-height: 36px;
+  }
+  
+  .logo-domain {
+    font-size: 0.85rem;
+  }
+  
+  .navbar-search {
+    max-width: 600px;
+  }
+  
+  .search-category {
+    padding: 0 12px;
+    font-size: 0.8rem;
+  }
+  
+  .search-input {
+    font-size: 0.9rem;
+  }
+  
+  .navbar-location {
+    display: block;
+  }
+  
+  .nav-link {
+    display: block;
+  }
+  
+  .cart-text {
+    display: inline;
+  }
+  
+  .mobile-menu-btn {
+    display: none;
+  }
+  
+  .nav-link {
+    padding: 6px 10px;
+  }
+  
+  .nav-cart {
+    padding: 6px 10px;
+  }
+}
+
+/* Large Desktop (1440px and up) */
+@media (min-width: 1440px) {
+  .navbar-container {
+    padding: 10px 40px;
+  }
+  
+  .navbar-search {
+    max-width: 800px;
+  }
+  
+  .logo-image {
+    max-height: 40px;
+  }
+}
+
+/* ==========================================
+   UTILITY & ACCESSIBILITY
+   ========================================== */
+
+/* Prevent body scroll when mobile menu is open */
+body.mobile-menu-open {
+  overflow: hidden;
+}
+
+/* Focus styles for accessibility */
+.nav-link:focus-visible,
+.nav-cart:focus-visible,
+.search-button:focus-visible,
+.mobile-menu-btn:focus-visible,
+.theme-toggle-btn:focus-visible {
+  outline: 2px solid #ff9900;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .mobile-menu,
+  .cart-count,
+  .search-button,
+  .nav-link,
+  .nav-cart {
+    animation: none;
+    transition: none;
+  }
+  
+  .mobile-menu {
+    animation: none;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .navbar {
+    border-bottom: 2px solid white;
+  }
+  
+  .search-button {
+    border: 1px solid #131921;
+  }
+  
+  .mobile-menu-item:hover {
+    outline: 1px solid white;
+  }
+}
+
+/* ==========================================
+   PRINT STYLES
+   ========================================== */
+
+@media print {
+  .navbar {
+    position: relative;
+    background-color: white;
+    color: black;
+    box-shadow: none;
+  }
+  
+  .navbar-logo a {
+    color: black;
+  }
+  
+  .search-button,
+  .mobile-menu-btn,
+  .nav-link,
+  .nav-cart,
+  .theme-toggle-btn {
+    display: none;
+  }
+  
+  .navbar-search {
+    display: none;
+  }
+}
+
+/* ==========================================
+   SCROLLBAR STYLING FOR MOBILE MENU
+   ========================================== */
+
+.mobile-menu::-webkit-scrollbar {
+  width: 4px;
+}
+
+.mobile-menu::-webkit-scrollbar-track {
+  background: #1a2a3a;
+}
+
+.mobile-menu::-webkit-scrollbar-thumb {
+  background: #ff9900;
+  border-radius: 4px;
+}
+
+.mobile-menu::-webkit-scrollbar-thumb:hover {
+  background: #f3a847;
+}
