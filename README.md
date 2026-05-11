@@ -1,70 +1,118 @@
-# Getting Started with Create React App
+## What This Application Does
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Amazon.za is a fully functional e-commerce front-end that runs entirely in your browser. You can browse 42 products across 8 categories, search and filter items, manage a shopping cart with quantity controls, create user accounts, and maintain persistent state through local storage. No backend required.
 
-## Available Scripts
+## Core Architecture
 
-In the project directory, you can run:
+The application uses React with a reducer-based state management pattern. Three independent state systems operate simultaneously:
 
-### `npm start`
+- **Authentication State** - Tracks login status, user profiles, and modal visibility
+- **Cart State** - Maintains items, calculates running totals, handles quantity mutations  
+- **Product State** - Manages master catalog and filtered views
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Every user action dispatches an action that processes through a pure reducer function, returning a new immutable state. This triggers targeted component re-renders without page refresh.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## User Interactions Explained
 
-### `npm test`
+**Account Creation & Login**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Click "Hello, Sign in" to open a modal dialog. The registration flow accepts any email/password combination, stores credentials in localStorage under the `amazon_za_users` key, and immediately authenticates the new user. Login compares submitted credentials against stored user records. The authentication persists across browser sessions - closing and reopening the application maintains your logged-in state until you explicitly sign out.
 
-### `npm run build`
+**Finding Products**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Four parallel discovery methods:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. **Global Search** - Scans product names, categories, subcategories, and descriptions. Case-insensitive substring matching. Press Ctrl+K (Windows) or Cmd+K (Mac) to focus the search bar without mouse interaction.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. **Category Filter** - Horizontal chips derived from unique product categories. Clicking dispatches a filter action that recomputes the displayed product array. The URL updates via React Router without full page reload.
 
-### `npm run eject`
+3. **Category Cards** - Dynamically generated from actual product data. Each card groups subcategories (like "Headphones" under "Electronics") and displays representative images from real products. Product counts show available inventory per subcategory.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+4. **Direct Navigation** - Click any product card to route to `/product/:id`. The product detail page fetches the full object by ID and displays specifications, description, and related products from the same category.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Cart Management**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The cart uses a reducer with four action types:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- `ADD_TO_CART` - Checks existing cart for product ID; increments quantity if found, adds new entry if not
+- `UPDATE_QUANTITY` - Modifies quantity value; automatically removes item if quantity reaches zero
+- `REMOVE_FROM_CART` - Deletes item regardless of quantity
+- `CLEAR_CART` - Empties entire cart array
 
-## Learn More
+Each mutation recalculates total items and total price before updating both in-memory state and localStorage. The cart page displays items with individual line totals, quantity selectors, and delete buttons. The order summary shows subtotal, delivery fee (free over R500), 15% VAT, and final total.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**Data Persistence**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Three localStorage keys maintain state:
 
-### Code Splitting
+| Key | Data Stored | Update Triggers |
+|-----|-------------|-----------------|
+| `amazon_za_products` | 42-item catalog with prices, ratings, specs | Never (static reference) |
+| `amazon_za_users` | User accounts with email, hashed passwords | Registration form submission |
+| `shopping_cart` | Cart items, quantities, pre-calculated totals | Every add/remove/quantity change |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+On application mount, the initialization function checks for existing storage and hydrates state accordingly. Empty storage receives default product catalog and one test user account.
 
-### Analyzing the Bundle Size
+**Browsing History**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The recently viewed system maintains an array of product IDs capped at 20 entries. Visiting any product detail page triggers `addToRecentlyViewed(productId)`, which removes duplicates, unshifts the new ID to the front, and truncates the array. The homepage reads this array, maps IDs to full product objects, and displays clickable thumbnails.
 
-### Making a Progressive Web App
+**Responsive Breakpoints**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+CSS media queries handle four screen sizes:
 
-### Advanced Configuration
+- **Mobile (<768px)** - Hamburger menu replaces navigation links; category chips become dropdown; product grid 1 column; cart stacks vertically
+- **Tablet (768-1024px)** - Partial navigation visible; horizontal scrolling category bar; product grid 2 columns
+- **Desktop (1024-1440px)** - Full navigation; sticky filter sidebar; product grid 4 columns; cart side-by-side with sticky checkout
+- **Ultrawide (>1440px)** - Content container max-width 1600px; centered layout with white space margins
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+The mobile menu uses fixed positioning with slide-in animation and prevents body scroll while open. Click outside or any menu item closes it.
 
-### Deployment
+**Visual Feedback System**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Every user action provides immediate visual confirmation:
 
-### `npm run build` fails to minify
+- Cart badge animates with bounce keyframe on item addition
+- Product cards lift with box-shadow transition on hover
+- Buttons scale to 0.98 on active state for press feedback
+- Quantity buttons change background color on hover
+- Focus rings appear for keyboard navigation using `:focus-visible` pseudo-class
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Error Handling & Edge Cases**
+
+The application gracefully handles common failure modes:
+
+- **Missing product images** - `onError` event triggers fallback to placeholder
+- **Empty search results** - Conditional rendering shows no-results message with continue shopping button
+- **Invalid product ID in URL** - Category page returns empty grid state
+- **No localStorage access** - State persists in memory only, warns console without crashing
+- **Out of stock products** - Add to cart button disables, stock status shows red text
+
+**State Flow Example: Adding an Item**
+
+1. User clicks "Add to Cart" on product card
+2. `cartDispatch({ type: 'ADD_TO_CART', payload: product })` fires
+3. Reducer finds existing item or creates new entry
+4. Updated items array calculated with new quantity
+5. `totalItems` and `totalPrice` recomputed via reduce operations
+6. New cart state object returned
+7. `useEffect` hook detects state change and writes to localStorage
+8. Component re-renders with updated cart badge and button text ("✓ Added to Cart")
+9. CSS transition animates the badge count change
+
+**Performance Characteristics**
+
+The product catalog loads once on initial mount (approximately 25KB JSON). All filtering, searching, and sorting executes client-side with O(n) time complexity. React.memo prevents unnecessary re-renders of product cards when parent state changes unrelated to the item. The development server uses hot module replacement for instant feedback during code changes.
+
+**Testing the Application**
+
+To verify functionality:
+- Open browser DevTools Application tab to inspect localStorage keys
+- Reduce network throttle to test offline persistence
+- Toggle device emulation to validate responsive breakpoints
+- Use keyboard only to verify accessibility navigation
+- Clear localStorage to reset to fresh application state
+
+---
+
+The application combines React's declarative rendering with localStorage persistence to create a fully functional e-commerce experience that requires no backend, no database, and no external API dependencies. All 42 products, cart operations, user authentication, and browsing history operate entirely within your browser.
